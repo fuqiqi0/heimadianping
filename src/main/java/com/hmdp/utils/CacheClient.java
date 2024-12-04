@@ -38,7 +38,7 @@ public class CacheClient {
         stringRedisTemplate.opsForValue().set(key, JSONUtil.toJsonStr(redisData));
     }
 
-    public <R,ID> R queryWithPassThrouth(
+    public <R,ID> R queryWithPassThrough(
             String keyPrefix, ID id, Class<R> type, Function<ID, R> dbFallback,Long time, TimeUnit timeUnit) {
         String key = keyPrefix + id;
         // 1. 从redis中查询缓存
